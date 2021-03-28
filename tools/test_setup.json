@@ -1,0 +1,38 @@
+{
+    "projectName": "GenomApp",
+    "collections" : [
+        {
+            "collectionName" : "Projects",
+            "rules" : [
+                {
+                    "label" : "Label1",
+                    "key" : "testkey1",
+                    "type" : "text",
+                    "default" : "SomeDefaultText1",
+                    "required" : true,
+                    "array" : false
+                },
+                {
+                    "label" : "Label2",
+                    "key" : "testkey2",
+                    "type" : "text",
+                    "default" : "SomeDefaultText2",
+                    "required" : false,
+                    "array" : false
+                }
+            ]
+        }
+    ],
+    "users": [
+        {
+            "email" : "dev@dev.de",
+            "password" : "dev1234",
+            "name" : "devTestAccount1"
+        },
+        {
+            "email" : "dev2@dev.de",
+            "password" : "dev1234",
+            "name" : "devTestAccount2"
+        }
+    ]
+}

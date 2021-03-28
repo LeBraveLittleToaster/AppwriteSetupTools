@@ -1,0 +1,27 @@
+{
+  "name": "appwrite-setup-tools",
+  "version": "0.0.1",
+  "description": "Tools to quickly setup new appwrite instance",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeBraveLittleToaster/AppwriteSetupTools.git"
+  },
+  "author": "Pascal Schiessle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeBraveLittleToaster/AppwriteSetupTools/issues"
+  },
+  "homepage": "https://github.com/LeBraveLittleToaster/AppwriteSetupTools#readme",
+  "dependencies": {
+    "@types/node": "^14.14.37",
+    "ajv": "^8.0.1",
+    "node-appwrite": "^1.1.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.2.3"
+  }
+}
