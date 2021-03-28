@@ -2,13 +2,13 @@
     "projectName": "GenomApp",
     "collections" : [
         {
-            "collectionName" : "Projects",
+            "name" : "Projects",
             "rules" : [
                 {
                     "label" : "Label1",
                     "key" : "testkey1",
                     "type" : "text",
-                    "default" : "SomeDefaultText1",
+                    "defaultValue" : "SomeDefaultText1",
                     "required" : true,
                     "array" : false
                 },
@@ -16,7 +16,7 @@
                     "label" : "Label2",
                     "key" : "testkey2",
                     "type" : "text",
-                    "default" : "SomeDefaultText2",
+                    "defaultValue" : "SomeDefaultText2",
                     "required" : false,
                     "array" : false
                 }
