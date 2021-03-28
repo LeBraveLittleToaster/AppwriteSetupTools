@@ -8,11 +8,6 @@ class AppwriteConfig{
         this.users = users;
     }
 
-    getProjectName() : string{
-        return this.projectName
-    }
-
-
     static decode(json:object) :AppwriteConfig {
         let config = Object.create(AppwriteConfig.prototype);
         let appC:AppwriteConfig = Object.assign(config, json);
