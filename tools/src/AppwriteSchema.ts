@@ -6,6 +6,36 @@ export const schema: Schema = {
     required: ["projectName"],
     properties: {
         projectName: { type: "string" },
+        eraseOldData: {type: "boolean"},
+        documentgenerators: {
+            type: "array",
+            items: {
+                type: "object",
+                additionalProperties: false,
+                required: ["collectionIndex", "count", "substituteStr", "data"],
+                properties: {
+                    collectionIndex : {type:"number"},
+                    count: {type:"number"},
+                    substituteStr: {type: "string"},
+                    data: {type: "object"}
+                }
+            }
+        },
+        usergenerators: {
+            type: "array",
+            items: {
+                type: "object",
+                additionalProperties: false,
+                required: ["count", "emailPraefix", "emailAppendix", "passwordPraefix", "namePraefix"],
+                properties: {
+                    count: { type: "number" },
+                    emailPraefix: { type: "string" },
+                    emailAppendix: { type: "string" },
+                    passwordPraefix: { type: "string" },
+                    namePraefix: { type: "string" }
+                }
+            }
+        },
         users: {
             type: "array",
             items: {
@@ -24,9 +54,10 @@ export const schema: Schema = {
             items: {
                 type: "object",
                 additionalProperties: false,
-                required: ["name"],
+                required: ["name", "index"],
                 properties: {
-                    name: {type:"string"},
+                    name: { type: "string" },
+                    index: {type: "number"},
                     rules: {
                         type: "array",
                         items: {

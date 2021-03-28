@@ -1,8 +1,10 @@
 {
     "projectName": "GenomApp",
+    "eraseOldData" : true,
     "collections" : [
         {
             "name" : "Projects",
+            "index" : 0,
             "rules" : [
                 {
                     "label" : "Label1",
@@ -33,6 +35,25 @@
             "email" : "dev2@dev.de",
             "password" : "dev1234",
             "name" : "devTestAccount2"
+        }
+    ],
+    "usergenerators" : [
+        {
+            "count" : 250,
+            "emailPraefix" : "username",
+            "emailAppendix" : "dev.de",
+            "passwordPraefix" : "password",
+            "namePraefix" : "name"
+        }
+    ],
+    "documentgenerators" : [
+        {
+            "collectionIndex" : 0,
+            "count" : 2,
+            "substituteStr" : "##",
+            "data" : {
+                "testkey1" : "world##"
+            }
         }
     ]
 }

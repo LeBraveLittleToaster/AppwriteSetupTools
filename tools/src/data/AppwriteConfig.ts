@@ -1,45 +1,49 @@
-class AppwriteConfig{
+class AppwriteConfig {
     projectName: string;
+    eraseOldData: boolean;
     collections: AppwriteCollection[];
     users: AppwriteUser[];
-    constructor(projectName:string, collections:AppwriteCollection[], users:AppwriteUser[]){
+    constructor(projectName: string, collections: AppwriteCollection[], users: AppwriteUser[], eraseOldData:boolean) {
         this.projectName = projectName;
         this.collections = collections;
         this.users = users;
+        this.eraseOldData = eraseOldData;
     }
 
-    static decode(json:object) :AppwriteConfig {
+    static decode(json: object): AppwriteConfig {
         let config = Object.create(AppwriteConfig.prototype);
-        let appC:AppwriteConfig = Object.assign(config, json);
+        let appC: AppwriteConfig = Object.assign(config, json);
         appC.collections = appC.collections?.map(e => AppwriteCollection.decode(e))
         appC.users = appC.users?.map(e => AppwriteUser.decode(e))
         return appC;
     }
 }
 
-class AppwriteCollection{
+class AppwriteCollection {
     rules: AppwriteRules[];
+    index: number;
     name: string;
-    constructor(name:string, rules:AppwriteRules[]){
+    constructor(name: string, index:number, rules: AppwriteRules[]) {
         this.name = name;
+        this.index = index;
         this.rules = rules;
     }
-    static decode(json:object) : AppwriteCollection {
+    static decode(json: object): AppwriteCollection {
         let config = Object.create(AppwriteCollection.prototype);
-        let appCol:AppwriteCollection = Object.assign(config, json);
+        let appCol: AppwriteCollection = Object.assign(config, json);
         appCol.rules = appCol.rules?.map(e => AppwriteRules.decode(e))
         return appCol;
     }
 }
 
-class AppwriteRules{
+class AppwriteRules {
     label: string;
     key: string;
     type: string;
     defaultValue: string;
     required: boolean;
     array: boolean;
-    constructor(label:string, key:string, type:string, defaultValue:string, required: boolean, array:boolean){
+    constructor(label: string, key: string, type: string, defaultValue: string, required: boolean, array: boolean) {
         this.label = label;
         this.key = key;
         this.type = type;
@@ -48,23 +52,34 @@ class AppwriteRules{
         this.array = array;
     }
 
-    static decode(json:object) : AppwriteRules {
+    toJsonObject(): object {
+        return {
+            label: this.label,
+            key: this.key,
+            type: this.type,
+            default: this.defaultValue,
+            required: this.required,
+            array: this.array
+        };
+    }
+
+    static decode(json: object): AppwriteRules {
         let config = Object.create(AppwriteRules.prototype);
         return Object.assign(config, json);
-    }    
+    }
 }
 
-class AppwriteUser{
-    email:string;
+class AppwriteUser {
+    email: string;
     password: string;
-    name:string;
+    name: string;
 
-    constructor(email:string, password:string, name:string){
+    constructor(email: string, password: string, name: string) {
         this.email = email;
         this.password = password;
         this.name = name;
     }
-    static decode(json:object) : AppwriteUser {
+    static decode(json: object): AppwriteUser {
         let config = Object.create(AppwriteUser.prototype);
         return Object.assign(config, json);
     }
