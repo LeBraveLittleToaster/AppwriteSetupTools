@@ -15,7 +15,6 @@ if(process.env.APPWRITE_API_KEY === undefined){
     process.exit(1)
 }
 
-
 const [valid, errors, config, generators] : [boolean, ErrorObject<string, Record<string, any>, unknown>[] | null | undefined, AppwriteConfig | undefined, AppwriteGenerators|undefined] = validateAppwriteConfig(args[0])
 
 if(valid){
